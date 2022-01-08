@@ -1,0 +1,57 @@
+﻿@page
+@model ProiectMediiAplicatieWeb.Pages.Bibliotecari.IndexModel
+
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Bibliotecar[0].Nume_Bibliotecar)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Bibliotecar[0].Prenume_Bibliotecar)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Bibliotecar[0].numar_telefon)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Bibliotecar[0].Carte_Imprumutata.Nume_Carte)
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Bibliotecar)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nume_Bibliotecar)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Prenume_Bibliotecar)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.numar_telefon)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Carte_Imprumutata.Nume_Carte)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.CNP">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.CNP">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.CNP">Delete</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,60 @@
+﻿@page
+@model ProiectMediiAplicatieWeb.Pages.Imprumuturi.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Imprumut[0].Carte_Imprumutata.Nume_Carte)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Imprumut[0].Autor.Nume_Autor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Imprumut[0].Client.Nume_Client)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Imprumut[0].Client.Prenume_Client)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Imprumut[0].Data_Retur)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Imprumut) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Carte_Imprumutata.Nume_Carte)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Autor.Nume_Autor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Client.Nume_Client)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Client.Prenume_Client)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Data_Retur)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,59 @@
+﻿@page
+@model ProiectMediiAplicatieWeb.Pages.Imprumuturi.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Imprumut</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Imprumut.ID" />
+
+            <div class="form-group">
+                <label asp-for="Imprumut.Carte_Imprumutata.Nume_Carte" class="control-label">Carte Imprumutata</label>
+                <input asp-for="Imprumut.Carte_Imprumutata.Nume_Carte" class="form-control" />
+                <span asp-validation-for="Imprumut.Carte_Imprumutata.Nume_Carte" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Imprumut.Autor.Nume_Autor" class="control-label">Nume Autor</label>
+                <input asp-for="Imprumut.Autor.Nume_Autor" class="form-control" />
+                <span asp-validation-for="Imprumut.Autor.Nume_Autor" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Imprumut.Client.Nume_Client" class="control-label">Nume Client</label>
+                <input asp-for="Imprumut.Client.Nume_Client" class="form-control" />
+                <span asp-validation-for="Imprumut.Client.Nume_Client" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Imprumut.Client.Prenume_Client" class="control-label">Prenume Client</label>
+                <input asp-for="Imprumut.Client.Prenume_Client" class="form-control" />
+                <span asp-validation-for="Imprumut.Client.Prenume_Client" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Imprumut.Data_Retur" class="control-label"></label>
+                <input asp-for="Imprumut.Data_Retur" class="form-control" />
+                <span asp-validation-for="Imprumut.Data_Retur" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

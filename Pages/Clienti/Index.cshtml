@@ -1,0 +1,54 @@
+﻿@page
+@model ProiectMediiAplicatieWeb.Pages.Clienti.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Client[0].Nume_Client)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Client[0].Prenume_Client)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Client[0].numar_telefon)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Client[0].Carte_Luata_Imprumut.Nume_Carte)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Client) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nume_Client)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Prenume_Client)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.numar_telefon)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Carte_Luata_Imprumut.Nume_Carte)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.CNP">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.CNP">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.CNP">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
